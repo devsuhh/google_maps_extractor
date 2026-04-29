@@ -121,7 +121,12 @@ When you click a place, the side panel updates — but sometimes slowly. The ext
 
 ## Companion tool
 
-This extension produces output designed for the **Wanderlog Place Importer** — a separate Chrome extension that takes the clipboard output and imports places into a Wanderlog trip, including notes. See the [Wanderlog Place Importer repo](https://github.com/your-username/wanderlog-place-importer) for details.
+This extension produces output designed for the **Wanderlog Place Importer** — a separate Chrome extension that takes the clipboard output and imports places into a Wanderlog trip, including notes. See the [Wanderlog Importer](https://github.com/devsuhh/wanderlog_importer)  for details.
+
+## Updates and Comments
+
+I will try to keep this updated, but this will be on a best-effort basis (and based on how many tokens I may have leftover from my daily work!)
+If this helped you, consider [buying me a coffee :)](https://github.com/devsuhh/wanderlog_importer)
 
 ## License
 
