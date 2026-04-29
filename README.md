@@ -126,7 +126,8 @@ This extension produces output designed for the **Wanderlog Place Importer** —
 ## Updates and Comments
 
 I will try to keep this updated, but this will be on a best-effort basis (and based on how many tokens I may have leftover from my daily work!)
-If this helped you, consider [buying me a coffee :)](https://github.com/devsuhh/wanderlog_importer)
+
+If this helped you, consider [buying me a coffee :)](https://buymeacoffee.com/devsuhh)
 
 ## License
 
