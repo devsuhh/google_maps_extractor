@@ -46,7 +46,7 @@ This format is designed to be pasted directly into the Wanderlog Place Importer 
 
 ## Usage
 
-1. Go to Google Maps and open a saved list (e.g. "Want to go", "Favourites", or any custom list)
+1. Go to Google Maps and open a saved list (e.g. "Want to go", "Favorites", or any custom list)
 2. Make sure you're on the **desktop** version of Maps (not the mobile/lite view)
 3. Click the extension icon in your toolbar
 4. Click **Extract Places**
