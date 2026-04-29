@@ -1,6 +1,6 @@
 # Google Maps List Extractor
 
-A Chrome extension that extracts places, addresses, and notes from your Google Maps saved lists. Designed as the first half of a two-step workflow — extract from Google Maps, then import into [Wanderlog](https://wanderlog.com) using the companion [Wanderlog Place Importer](https://github.com/your-username/wanderlog-place-importer) extension.
+A Chrome extension that extracts places, addresses, and notes from your Google Maps saved lists. Designed as the first half of a two-step workflow — extract from Google Maps, then import into [Wanderlog](https://wanderlog.com) using the companion [Wanderlog Importer](https://github.com/devsuhh/wanderlog_importer) extension.
 
 ## What it does
 
