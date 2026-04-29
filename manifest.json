@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Google Maps List Extractor - Personal Tool",
+  "version": "3.0.0",
+  "description": "Extract your own Google Maps saved lists with complete place data. Personal backup tool for your saved places, restaurants, and travel lists.",
+
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "downloads",
+    "storage"
+  ],
+
+  "host_permissions": [
+    "https://www.google.com/maps/*",
+    "https://maps.google.com/*"
+  ],
+
+  "action": {
+    "default_title": "Extract places from your Google Maps lists",
+    "default_popup": "popup.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.google.com/maps/*",
+        "https://maps.google.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

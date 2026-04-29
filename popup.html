@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Maps List Extractor</title>
+  <style>
+    body {
+      font-family: system-ui, Arial;
+      margin: 16px;
+      width: 340px;
+      font-size: 14px;
+      color: #202124;
+    }
+
+    h1 {
+      font-size: 16px;
+      margin: 0 0 14px;
+      color: #34a853;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .instructions {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 12px;
+      color: #5f6368;
+      line-height: 1.6;
+    }
+    .instructions ol { margin: 0; padding-left: 16px; }
+    .instructions li { margin-bottom: 2px; }
+
+    .extract-button {
+      background: #34a853; color: white; border: none;
+      padding: 12px; border-radius: 8px; font-size: 15px;
+      font-weight: 600; cursor: pointer; width: 100%; margin-bottom: 10px;
+      transition: background 0.15s ease;
+    }
+    .extract-button:hover    { background: #2d8a47; }
+    .extract-button:disabled { background: #9aa0a6; cursor: not-allowed; }
+
+    .stop-button {
+      background: #ea4335; color: white; border: none;
+      padding: 12px; border-radius: 8px; font-size: 15px;
+      font-weight: 600; cursor: pointer; width: 100%; margin-bottom: 10px;
+      transition: background 0.15s ease; display: none;
+    }
+    .stop-button:hover    { background: #d33b2c; }
+    .stop-button:disabled { background: #9aa0a6; cursor: not-allowed; }
+
+    .progress-container {
+      display: none;
+      background: #f1f3f4;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+    }
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: 12px;
+      color: #5f6368;
+    }
+    .progress-track {
+      background: #e0e0e0;
+      border-radius: 4px;
+      height: 6px;
+      overflow: hidden;
+    }
+    #progressBar {
+      background: #34a853;
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    #status {
+      font-size: 12px;
+      color: #5f6368;
+      text-align: center;
+      padding: 6px 8px;
+      background: #f8f9fa;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .status-success { background: #e6f4ea !important; color: #137333 !important; }
+    .status-error   { background: #fce8e6 !important; color: #d93025 !important; }
+    .status-stopped { background: #fef7e0 !important; color: #b06000 !important; }
+
+    .stop-notice {
+      background: #fef7e0;
+      border: 1px solid #f9ab00;
+      border-radius: 6px;
+      padding: 8px 12px;
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: #b06000;
+      display: none;
+    }
+
+    .button-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .button-row button {
+      flex: 1; padding: 9px; border: none;
+      border-radius: 6px; cursor: pointer;
+      font-size: 13px; font-weight: 500;
+    }
+    .copy-btn       { background: #1a73e8; color: white; }
+    .copy-btn:hover  { background: #1557b0; }
+    .download-btn   { background: #34a853; color: white; }
+    .download-btn:hover { background: #2d8a47; }
+
+    #results { margin-top: 4px; }
+    .results-list {
+      max-height: 260px;
+      overflow-y: auto;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 12px;
+    }
+    .result-row {
+      padding: 7px 10px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .result-row:last-child { border-bottom: none; }
+    .result-name { font-weight: 600; color: #1a73e8; }
+    .result-addr { color: #5f6368; margin-top: 1px; }
+  </style>
+</head>
+<body>
+  <h1>Maps List Extractor</h1>
+
+  <div class="instructions">
+    <ol>
+      <li>Open a saved list in <strong>desktop</strong> Google Maps</li>
+      <li>Click <strong>Extract Places</strong></li>
+      <li>The extension pre-scrolls your list to load all places before starting</li>
+      <li>Each place may pause up to 6 seconds if an address is slow to load</li>
+      <li>Stop early any time to get partial results</li>
+      <li>Copy to clipboard or download CSV when done</li>
+    </ol>
+  </div>
+
+  <button id="nonAggressiveBtn" class="extract-button">Extract Places</button>
+  <button id="stopBtn" class="stop-button">⏹️ Stop</button>
+
+  <div class="progress-container">
+    <div class="progress-header">
+      <span>Progress</span>
+      <span id="progressText">0/0</span>
+    </div>
+    <div class="progress-track">
+      <div id="progressBar"></div>
+    </div>
+  </div>
+
+  <div id="status">Ready — open your saved list first</div>
+
+  <div class="stop-notice" id="stopNotice">
+    ⏹️ Stopped early — partial results below.
+  </div>
+
+  <div id="results"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
